@@ -80,7 +80,12 @@ If you still want to back up your specific badge's current state (using `esptool
 2. **Open the Environment:**
    Open the `Foxhunter 8bit/` folder in the Arduino IDE (or PlatformIO, if configured). Make sure your board manager is set up for the **ESP32-C6**.
 3. **Install Dependencies:**
-   Ensure you have the required display libraries installed. The screen runs smoothly using the `Adafruit_ST7789` library (initialized with custom SPI pins, `tft.init(240, 320)`, and `tft.setRotation(1)`).
+   Open the Arduino Library Manager (`Sketch` > `Include Library` > `Manage Libraries...`) and install the following required external libraries:
+   *   **Arduino_GFX_Library** (for driving the display)
+   *   **NimBLE-Arduino** (for optimized Bluetooth Low Energy handling)
+   *   **ArduinoJson** (for parsing signature configurations)
+   
+   *(Note: Headers like `WiFi.h`, `LittleFS.h`, `esp_wifi.h`, and `esp_ieee802154.h` are built into the ESP32 core and do not require separate installation. Local headers like `SafeQR.h` and `logo.h` are already included in the repository).*
 4. **Compile & Flash:**
    Connect the badge via USB and hit upload.
 
