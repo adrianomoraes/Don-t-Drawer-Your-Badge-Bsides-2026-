@@ -85,7 +85,7 @@ If you still want to back up your specific badge's current state (using `esptool
    *   **NimBLE-Arduino** (for optimized Bluetooth Low Energy handling)
    *   **ArduinoJson** (for parsing signature configurations)
    
-   *(Note: Headers like `WiFi.h`, `LittleFS.h`, `esp_wifi.h`, and `esp_ieee802154.h` are built into the ESP32 core and do not require separate installation. Local headers like `SafeQR.h` and `logo.h` are already included in the repository).*
+   *(Note: Local headers like `SafeQR.h` and `logo.h` are already included in the repository).*
 4. **Compile & Flash:**
    Connect the badge via USB and hit upload.
 
