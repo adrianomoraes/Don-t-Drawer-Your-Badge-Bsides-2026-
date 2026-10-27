@@ -18,6 +18,40 @@
 #include "SafeQR.h" 
 #include "logo.h" 
 
+// --- PINOUT ---
+#define TFT_MOSI 19
+#define TFT_SCK  21
+#define TFT_CS   2
+#define TFT_DC   4
+#define TFT_RST  3
+#define TFT_BL   5
+#define PIN_KEEPALIVE 6
+
+#define BTN_UP    7
+#define BTN_DOWN  15
+#define BTN_LEFT  9
+#define BTN_RIGHT 18
+#define BTN_A     22
+#define BTN_B     23
+
+// --- TACTICAL COLORS (BGR CORRECTED) ---
+#define BLACK      0x0000
+#define WHITE      0xFFFF
+#define RED        0x001F  
+#define GREEN      0x07E0  
+#define DARKGREEN  0x01E0
+#define YELLOW     0x07FF  
+#define CYAN       0xFFE0  
+#define GREY       0x7BEF
+#define MAGENTA    0xF81F  
+#define ORANGE     0x053F  
+#define BLUE       0x88E0  
+#define PURPLE     0xF80F  
+#define LIME       0x47E0  
+#define GOLD       0x03FF  
+#define TEAL       0x87E0  
+
+
 // --- CORE DATA STRUCTURES ---
 struct Packet { 
   String mac; 
@@ -94,39 +128,6 @@ extern "C" void esp_ieee802154_receive_failed(uint16_t error) {
 extern "C" void esp_ieee802154_receive_sfd_done(void) {
     // Required by ESP-IDF linker to clear the SFD interrupt
 }
-
-// --- PINOUT ---
-#define TFT_MOSI 19
-#define TFT_SCK  21
-#define TFT_CS   2
-#define TFT_DC   4
-#define TFT_RST  3
-#define TFT_BL   5
-#define PIN_KEEPALIVE 6
-
-#define BTN_UP    7
-#define BTN_DOWN  15
-#define BTN_LEFT  9
-#define BTN_RIGHT 18
-#define BTN_A     22
-#define BTN_B     23
-
-// --- TACTICAL COLORS (BGR CORRECTED) ---
-#define BLACK      0x0000
-#define WHITE      0xFFFF
-#define RED        0x001F  
-#define GREEN      0x07E0  
-#define DARKGREEN  0x01E0
-#define YELLOW     0x07FF  
-#define CYAN       0xFFE0  
-#define GREY       0x7BEF
-#define MAGENTA    0xF81F  
-#define ORANGE     0x053F  
-#define BLUE       0x88E0  
-#define PURPLE     0xF80F  
-#define LIME       0x47E0  
-#define GOLD       0x03FF  
-#define TEAL       0x87E0  
 
 Arduino_DataBus *bus = new Arduino_ESP32SPI(TFT_DC, TFT_CS, TFT_SCK, TFT_MOSI, -1);
 Arduino_GFX *gfx = new Arduino_ST7735(bus, TFT_RST, 1);
