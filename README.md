@@ -46,38 +46,12 @@ Foxhunter 8-Bit utilizes a passive radar and "foxhunt" architecture:
 
 ---
 
-## 🛠️ Hardware & Pinout Reference
-
-Through black-box reverse engineering, the badge components were mapped to the ESP32-C6 GPIOs. 
-
-For official documentation on the microcontroller, refer to the Espressif Systems datasheet:
-🔗 [ESP32-C6-MINI-1 / MINI-1U Datasheet (PDF)](https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf)
-
-### Inputs (Tactile Buttons)
-*   **UP**: GPIO 7
-*   **DOWN**: GPIO 15
-*   **LEFT**: GPIO 9 *(Crucial for Bootloader recovery - see troubleshooting)*
-*   **RIGHT**: GPIO 18
-*   **Button A**: GPIO 22
-*   **Button B**: GPIO 23
-
-### 1.47-inch TFT Display (ST7789 via SPI)
-*   **MOSI**: 19
-*   **SCK**: 21
-*   **CS**: 2
-*   **DC**: 4
-*   **RST**: 3
-*   **BL (Backlight)**: 5
-
-*Note: Avoid reconfiguring GPIO 12 and GPIO 13, as these act as native USB pins. Messing with these in your code will break serial communication.*
-
----
-
 ## 💾 How to Backup the Original Firmware
 
 Before installing Foxhunter 8-Bit, you may want to back up your badge's current flash memory so you can restore the original game later. 
 
-> **Note on pre-existing dump:** A factory dump obtained directly from my own stock badge is already included in this repository under the `Bsides badge 2025 dump/` folder. If you simply want a clean backup, you can use that file instead of manually dumping your own!
+> **Note on restoring the original game:** A factory dump obtained directly from my own stock badge is already included in this repository under the `Bsides badge 2025 dump/` folder. Alternatively, if you want to compile and restore the original code from scratch, the complete source code for the BSides Lisbon 2025 badge can be found in the official repository here: 
+> 🔗 [bsideslisbon2025-badge by kripthor](https://github.com/kripthor/bsideslisbon2025-badge/tree/main)
 
 If you still want to back up your specific badge's current state (using `esptool.py`), follow these steps:
 
