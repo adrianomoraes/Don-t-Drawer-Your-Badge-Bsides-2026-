@@ -22,6 +22,9 @@ Presented at **BSides Lisbon 2026** by Adriano Dias Moraes.
 
 The BSides Lisbon 2025 badge was designed by Pedro Umbelino ([kripthor](https://www.linkedin.com/pulse/hardware-badges-analog-seppuku-pedro-umbelino-x6r3e/)) to be a fully functional, battery-powered game pad with state-of-the-art Wi-Fi. It features the ESP32-C6 microcontroller, 6 buttons, USB charging, a color LCD, and breakout pins.
 
+For official documentation on the microcontroller, refer to the Espressif Systems datasheet:
+🔗 [ESP32-C6-MINI-1 / MINI-1U Datasheet (PDF)](https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf)
+
 ### The "Analog Seppuku" & Power Delivery Issue
 
 During the 2025 conference, roughly 6% of the badges catastrophically failed—summoning "magic smoke"—due to issues with the battery management IC (the IP5305T) and the associated inductor. 
@@ -85,7 +88,7 @@ If you still want to back up your specific badge's current state (using `esptool
    *   **NimBLE-Arduino** (for optimized Bluetooth Low Energy handling)
    *   **ArduinoJson** (for parsing signature configurations)
    
-   *(Note: Local headers like `SafeQR.h` and `logo.h` are already included in the repository).*
+   *(Note: Headers like `WiFi.h`, `LittleFS.h`, `esp_wifi.h`, and `esp_ieee802154.h` are built into the ESP32 core and do not require separate installation. Local headers like `SafeQR.h` and `logo.h` are already included in the repository).*
 4. **Compile & Flash:**
    Connect the badge via USB and hit upload.
 
