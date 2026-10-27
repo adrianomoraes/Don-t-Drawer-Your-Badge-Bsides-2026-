@@ -40,7 +40,7 @@ As detailed in Pedro's post-mortem analysis:
 
 ---
 
-## 🎯 Features
+## 🦊 Foxhunter 8-Bit Features
 
 Foxhunter 8-Bit utilizes a passive radar and "foxhunt" architecture:
 
