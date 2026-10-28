@@ -14,6 +14,7 @@ Presented at **BSides Lisbon 2026** by Adriano Dias Moraes.
 
 - `Foxhunter 8bit/`: The main source code for the Multi-Spectrum Threat Radar firmware.
 - `Bsides badge 2025 dump/`: Original files, firmware dump, and reference material from the stock badge.
+- `pong.ino`: A standalone, functional, flicker-free Pong game written for the badge hardware.
 - `Foxhunter_logo.jpeg`: The official logo for the project.
 
 ---
@@ -48,6 +49,19 @@ Foxhunter 8-Bit utilizes a passive radar and "foxhunt" architecture:
 2. **BLE 5.0 / 5.3**: Passive listening on advertising channels (37, 38, 39) to parse raw PDUs, manufacturer payloads, and track devices like Apple AirTags.
 3. **IEEE 802.15.4 (Zigbee / Thread)**: Sniffing raw MAC primitives and beacons.
 4. **Foxhunt UI & Radar HUD**: Plots targets on radar rings and tracks live signal peaks. Physical proximity is estimated by smoothing raw RSSI spikes using a Weighted Moving Average (WMA) filter.
+
+---
+
+## 🏓 Bonus: Playable Pong Prototype (`pong.ino`)
+
+Included in the root of this repository is `pong.ino`, the original proof-of-concept game I wrote while reverse-engineering the badge's hardware pins[cite: 2.2]. 
+
+If you want a lightweight project to test your badge's screen and buttons before diving into the RF tools, you can flash this file.
+
+**Pong Features:**
+*   **Two-Player Local Multiplayer:** Uses the Left directional pad for Player 1 (Up/Down) and the right action buttons (A/B) for Player 2. 
+*   **Optimized Rendering:** Uses targeted screen repairs (redrawing only the moving elements) instead of full-screen wipes to ensure fast, 60 FPS flicker-free gameplay on the ST7789 display[cite: 2.3].
+*   **Dependencies:** Just requires the `Adafruit_GFX` and `Adafruit_ST7789` libraries[cite: 2.3] to run.
 
 ---
 
