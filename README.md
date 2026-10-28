@@ -82,17 +82,23 @@ If you still want to back up your specific badge's current state (using `esptool
    ```bash
    git clone [https://github.com/adrianomoraes/Don-t-Drawer-Your-Badge-Bsides-2026-.git](https://github.com/adrianomoraes/Don-t-Drawer-Your-Badge-Bsides-2026-.git)
    ```
-2. **Open the Environment:**
-   Open the `Foxhunter 8bit/` folder in the Arduino IDE (or PlatformIO, if configured). Make sure your board manager is set up for the **ESP32-C6**.
+2. **Configure the Arduino IDE for ESP32-C6:**
+   * **Add Board Manager URL:** Open **File > Preferences**. In the "Additional Boards Manager URLs" field, paste `https://espressif.github.io/arduino-esp32/package_esp32_index.json` and click OK.
+   * **Install the ESP32 Core:** Go to **Tools > Board > Boards Manager**. Search for `esp32` and install the package by **Espressif Systems** *(ensure you install version 3.0.0 or newer, as earlier versions do not support the C6)*.
+   * **Select the Board:** Go to **Tools > Board > esp32** and select **ESP32C6 Dev Module**.
+   * **Configure Board Settings:** Under the **Tools** menu, ensure the following configurations are set:
+     * **USB CDC On Boot:** `Enabled` *(Critical: without this, the ESP32-C6 native USB will not send data to your Serial Monitor)*.
+     * **Flash Size:** `4MB (32Mb)`
+     * **Port:** Select the COM or `/dev/tty` port your badge is connected to.
 3. **Install Dependencies:**
    Open the Arduino Library Manager (`Sketch` > `Include Library` > `Manage Libraries...`) and install the following required external libraries:
    *   **Arduino_GFX_Library** (for driving the display)
    *   **NimBLE-Arduino** (for optimized Bluetooth Low Energy handling)
    *   **ArduinoJson** (for parsing signature configurations)
    
-   *(Note: Headers like `WiFi.h`, `LittleFS.h`, `esp_wifi.h`, and `esp_ieee802154.h` are built into the ESP32 core and do not require separate installation. Local headers like `SafeQR.h` and `logo.h` are already included in the repository).*
+   *(Note: Headers like `WiFi.h`, `LittleFS.h`, `esp_wifi.h`, and `esp_ieee802154.h` are built directly into the ESP32 core and do not require separate installation. Local headers like `SafeQR.h` and `logo.h` are already included in the repository. The filesystem data is created automatically on the first run, so no LittleFS upload tool is required).*
 4. **Compile & Flash:**
-   Connect the badge via USB and hit upload.
+   Open the `Foxhunter 8bit/` folder in the Arduino IDE, connect the badge via USB, and hit upload.
 
 ### 🚑 Troubleshooting: The Hardware Rescue Method
 If you flash code that bricks the native USB (e.g., misconfiguring GPIO 12/13) and you lose serial connection, do not panic:
