@@ -26,11 +26,11 @@ The BSides Lisbon 2025 badge was designed by Pedro Umbelino ([kripthor](https://
 For official documentation on the microcontroller, refer to the Espressif Systems datasheet:
 🔗 [ESP32-C6-MINI-1 / MINI-1U Datasheet (PDF)](https://documentation.espressif.com/esp32-c6-mini-1_mini-1u_datasheet_en.pdf)
 
-### The "Analog Seppuku" & Power Delivery Issue
+### The "Analog Seppuku" and Power Delivery Issue
 
 See write up about this [here](https://www.linkedin.com/pulse/hardware-badges-analog-seppuku-pedro-umbelino-x6r3e/).
 
-During the 2025 conference, roughly 6% of the badges catastrophically failed—summoning "magic smoke"—due to issues with the battery management IC (the IP5305T) and the associated inductor. 
+During the 2025 conference, roughly 6% of the badges catastrophically failed—summoning "magic smoke", due to issues with the battery management IC (the IP5305T) and the associated inductor. 
 
 As detailed in Pedro's post-mortem analysis:
 1. **Inductor Saturation:** The inductors had wide spreads in saturation current. Units on the low end entered saturation earlier, producing higher current spikes during Wi-Fi bursts.
@@ -48,7 +48,7 @@ Foxhunter 8-Bit utilizes a passive radar and "foxhunt" architecture:
 1. **Wi-Fi 6 (802.11 b/g/n/ax)**: Promiscuous mode capturing raw management frames (Beacons, Probe Requests, Deauths) across channels 1–14 to map infrastructure and spot rogue APs.
 2. **BLE 5.0 / 5.3**: Passive listening on advertising channels (37, 38, 39) to parse raw PDUs, manufacturer payloads, and track devices like Apple AirTags.
 3. **IEEE 802.15.4 (Zigbee / Thread)**: Sniffing raw MAC primitives and beacons.
-4. **Foxhunt UI & Radar HUD**: Plots targets on radar rings and tracks live signal peaks. Physical proximity is estimated by smoothing raw RSSI spikes using a Weighted Moving Average (WMA) filter.
+4. **Foxhunt UI + Radar HUD**: Plots targets on radar rings and tracks live signal peaks. Physical proximity is estimated by smoothing raw RSSI spikes using a Weighted Moving Average (WMA) filter.
 
 ---
 
@@ -111,7 +111,7 @@ If you still want to back up your specific badge's current state (using `esptool
    *   **ArduinoJson** (for parsing signature configurations)
    
    *(Note: Headers like `WiFi.h`, `LittleFS.h`, `esp_wifi.h`, and `esp_ieee802154.h` are built directly into the ESP32 core and do not require separate installation. Local headers like `SafeQR.h` and `logo.h` are already included in the repository. The filesystem data is created automatically on the first run, so no LittleFS upload tool is required).*
-4. **Compile & Flash:**
+4. **Compile and Flash:**
    Open the `Foxhunter 8bit/` folder in the Arduino IDE, connect the badge via USB, and hit upload.
 
 ### 🚑 Troubleshooting: The Hardware Rescue Method
