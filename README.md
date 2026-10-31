@@ -54,14 +54,14 @@ Foxhunter 8-Bit utilizes a passive radar and "foxhunt" architecture:
 
 ## 🏓 Bonus: Playable Pong Prototype (`pong.ino`)
 
-Included in the root of this repository is `pong.ino`, the original proof-of-concept game I wrote while reverse-engineering the badge's hardware pins[cite: 2.2]. 
+Included in the root of this repository is `pong.ino`, the original proof-of-concept game I wrote while reverse-engineering the badge's hardware pins. 
 
 If you want a lightweight project to test your badge's screen and buttons before diving into the RF tools, you can flash this file.
 
 **Pong Features:**
 *   **Two-Player Local Multiplayer:** Uses the Left directional pad for Player 1 (Up/Down) and the right action buttons (A/B) for Player 2. 
-*   **Optimized Rendering:** Uses targeted screen repairs (redrawing only the moving elements) instead of full-screen wipes to ensure fast, 60 FPS flicker-free gameplay on the ST7789 display[cite: 2.3].
-*   **Dependencies:** Just requires the `Adafruit_GFX` and `Adafruit_ST7789` libraries[cite: 2.3] to run.
+*   **Optimized Rendering:** Uses targeted screen repairs (redrawing only the moving elements) instead of full-screen wipes to ensure fast, 60 FPS flicker-free gameplay on the ST7789 display.
+*   **Dependencies:** Just requires the `Adafruit_GFX` and `Adafruit_ST7789` libraries to run.
 
 ---
 
